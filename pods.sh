@@ -12,10 +12,10 @@ git pull 1>&1 | grep "Already up-to-date."
 
 
 mkdir -p $DIR/tmp/
-exec $DIR/i18n.sh wp-plugin $DIR/pods $DIR/tmp/pods.pot init
+sh $DIR/i18n.sh wp-plugin $DIR/pods $DIR/tmp/pods.pot init
 
 # GlotPress
 # "-p <project-path> -f <file> [-o <format>]"
 if [ ! -d "$DIR/../glotpress/scripts/import-originals.php" ]; then
-	php DIR/../glotpress/scripts/import-originals.php -p pods-framework -f $DIR/tmp/pods.pot
+	php $DIR/../glotpress/scripts/import-originals.php -p pods-framework -f $DIR/tmp/pods.pot
 fi
